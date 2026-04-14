@@ -1,0 +1,66 @@
+# Admin Shop Configuration
+# "buy": Price for Player to BUY from Shop
+# "sell": Price for Player to SELL to Shop
+
+categories:
+  minerals:
+    name: "&bMinerals"
+    icon: DIAMOND_PICKAXE
+    slot: 11
+    items:
+      cobble:
+        material: COBBLESTONE
+        buy: 0.15
+        sell: 0.05
+      iron:
+        material: IRON_INGOT
+        buy: 15.0
+        sell: 5.0
+      gold:
+        material: GOLD_INGOT
+        buy: 30.0
+        sell: 10.0
+      diamond:
+        material: DIAMOND
+        buy: 200.0
+        sell: 50.0
+      netherite:
+        material: NETHERITE_INGOT
+        buy: 4000.0
+        sell: 1000.0
+
+  farming:
+    name: "&aFarming"
+    icon: IRON_HOE
+    slot: 13
+    items:
+      wheat:
+        material: WHEAT
+        buy: 5.0
+        sell: 1.0
+      carrot:
+        material: CARROT
+        buy: 5.0
+        sell: 1.0
+      potato:
+        material: POTATO
+        buy: 5.0
+        sell: 1.0
+
+  mob_drops:
+    name: "&cMob Drops"
+    icon: ROTTEN_FLESH
+    slot: 15
+    items:
+      flesh:
+        material: ROTTEN_FLESH
+        buy: 2.0
+        sell: 0.5
+      bone:
+        material: BONE
+        buy: 5.0
+        sell: 1.0
+      pearl:
+        material: ENDER_PEARL
+        buy: 50.0
+        sell: 10.0

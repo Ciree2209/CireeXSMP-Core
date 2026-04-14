@@ -1,0 +1,8 @@
+# CsmpCore Configuration
+
+resource-world:
+  name: "resource_world"
+  back-cooldown-seconds: 300
+
+pvp:
+  cooldown-seconds: 300

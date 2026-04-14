@@ -1,0 +1,9 @@
+# MySQL Database Configuration
+# You must create the database 'csmp_core' (or whatever name you choose) manually.
+host: "127.0.0.1"
+port: 3306
+database: "csmp_core"
+username: "root"
+password: "password"
+use-ssl: false
+pool-size: 10

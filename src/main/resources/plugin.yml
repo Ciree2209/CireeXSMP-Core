@@ -1,0 +1,75 @@
+name: CsmpCore
+version: '${project.version}'
+main: com.cirexx.csmp.CsmpCore
+api-version: 1.21
+authors: [ Cirexx ]
+description: Core plugin for CirexxSMP
+
+commands:
+  tokens:
+    description: Manage Event Tokens
+    usage: /tokens <subcommand>
+    aliases: [et, eventtokens]
+  rw:
+    description: Teleport to Resource World
+    usage: /rw [back]
+    aliases: [resourceworld]
+  pvp:
+    description: Toggle PvP status
+    usage: /pvp [on|off]
+  rankup:
+    description: Check rank status or promote self
+    usage: /rankup
+  shop:
+    description: Open the Admin Shop
+    usage: /shop
+  ah:
+    description: Open the Auction House
+    usage: /ah [sell]
+    aliases: [auction]
+  sethome:
+    description: Set a home
+  home:
+    description: Teleport to a home
+  delhome:
+    description: Delete a home
+  homes:
+    description: List homes
+  pwarp:
+    description: Player Warps
+    aliases: [pw]
+  tpa:
+    description: Request TPA
+  tpahere:
+    description: Request TPA Here ($100)
+  tpaccept:
+    description: Accept TPA
+    aliases: [tpyes]
+  cosmetics:
+    description: Open cosmetics menu
+    aliases: [trails]
+  hat:
+    description: Wear item on head
+  workbench:
+    description: Open portable workbench
+    aliases: [wb]
+  ec:
+    description: Open enderchest
+  nick:
+    description: Change nickname
+
+chat:
+  format: "{prefix}{name}: {message}"
+
+tab:
+  header: "&6&lWelcome to CirexxSMP"
+  footer: "&7Online: &f{online}"
+
+scoreboard:
+  title: "&6&lCirexxSMP"
+  footer: "&eplay.cirexx.com"
+
+permissions:
+  csmp.tokens.admin:
+    description: Admin access to token management
+    default: op
