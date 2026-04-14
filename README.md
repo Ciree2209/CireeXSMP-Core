@@ -1,128 +1,109 @@
-# 💎 CSMP-CORE
+# CSMP-CORE
 
 [![Version](https://img.shields.io/badge/Version-1.21.1-blue.svg)](https://papermc.io/)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**CSMP-CORE** is a high-performance, all-in-one suite designed for Survival/SMP servers. Built with modern Paper/Spigot APIs and asynchronous database logic, it provides a seamless experience for economy, progression, and player utilities.
-
-CSMP-Core
-All-in-one core plugin for survival/SMP servers. Built for Paper 1.21.x with async MySQL, Vault economy, and Adventure API.
-Instead of running 10+ separate plugins, this handles everything a custom SMP needs in one jar.
-Features
-Auction House (/ah)
-
-List items for sale with a 5% listing fee
-Buy items from other players (5% tax on sale)
-48-hour auto-expiry with collection bin for unsold items
-Listing limits scale with rank (3 default → 20 for Legend)
-Full async MySQL — no main thread blocking
-
-Admin Shop (/shop)
-
-GUI-based shop with configurable items, prices, and categories
-Multi-page navigation
-Supports custom NBT/lore items
-Vault integrated buy/sell
-
-Rank Progression (/rankup)
-
-6-tier system: Wanderer → Settler → Trader → Merchant → Tycoon → Legend
-Requirements per rank: playtime (via PLAY_ONE_MINUTE statistic), money, event wins
-Auto-promotes through Vault permissions (works with LuckPerms)
-Money is deducted on rankup
-
-Server Events
-
-Chat Quiz — Random math questions, first correct answer wins tokens
-Mining Race — Competitive block-breaking event
-Events run on a configurable timer (default: every hour)
-Winners earn Event Tokens as secondary currency
-
-Event Tokens (/tokens)
-
-Secondary currency separate from Vault economy
-Earned through server events
-Admin commands: /tokens give, /tokens take, /tokens set
-YAML-based storage with auto-save on shutdown
-
-Home System
-
-/sethome [name] — First 2 homes free, then scaling cost ($5k / $10k / $25k)
-/home [name] — Defaults to "home" if no name given
-/delhome [name] / /homes — Delete and list
-Overwriting existing homes is free
-Cached in memory on join, async MySQL persistence
-
-Player Warps (/pwarp)
-
-Public warps anyone can visit
-$50,000 creation cost
-Owner can delete their own warps
-MySQL backed with in-memory cache
-
-Teleport Requests
-
-/tpa <player> — Request to teleport to someone
-/tpahere <player> — Request someone to teleport to you ($100 cost)
-/tpaccept — Accept incoming request
-
-PvP Toggle (/pvp)
-
-Opt-in PvP system for SMP
-Combat tagging — can't toggle off during a fight (15s tag)
-Configurable cooldown before you can disable PvP again (default: 5 min)
-
-Scoreboard
-
-Dynamic sidebar: rank, balance, tokens, current event, server IP
-Updates every second
-Per-player scoreboards (no cross-contamination)
-Pulls data from Vault permissions and economy
-
-Chat & Tab
-
-Custom chat formatting with rank prefix support
-Configurable tab header/footer with online player count
-
-Resource World (/rw)
-
-Random teleport to a designated resource world
-
-Cosmetics (/cosmetics)
-
-Particle trail system via GUI menu
-
-Perks
-
-/hat — Wear any item on your head
-/ec — Portable ender chest
-/wb — Portable workbench
-/nick — Change display name
-
-Technical Details
-
-Database: MySQL with HikariCP connection pooling (prepared statement caching enabled)
-Threading: All DB reads/writes run async via BukkitScheduler
-API: Paper 1.21.1+ with Adventure components (no legacy ChatColor)
-Dependencies: Vault, LuckPerms, economy provider (EssentialsX etc.)
-Messages: Centralized messages.yml with placeholder support
-Config files: config.yml, database.yml, messages.yml, shop.yml
-
-Setup
-
-Paper 1.21.1+ server
-Install Vault + LuckPerms + an economy provider
-Drop CSMP-CORE.jar into /plugins
-Configure MySQL credentials in database.yml
-Restart server — tables are created automatically
-
-Commands
-CommandDescriptionPermission/ah [sell <price>]Auction housecsmp.auction/shopAdmin shopcsmp.shop/rankupRank upcsmp.rankup/tokens [give/take/set]Event tokenscsmp.tokens / csmp.tokens.admin/pvpToggle PvPcsmp.pvp.toggle/sethome [name]Set a home—/home [name]Teleport to home—/homesList homes—/delhome [name]Delete home—/pwarp [set/del/name]Player warps—/tpa <player>TPA request—/tpahere <player>TPA here ($100)—/tpacceptAccept TPA—/rwResource worldcsmp.resourceworld/cosmeticsCosmetics menu—/hatWear item as hatcsmp.perks.hat/ecEnder chest—/wbWorkbench—/nick <n>Nickname—
-
-Made by Ciree | Discord: hitreg_69
+All-in-one core plugin for Survival/SMP servers. Built for Paper 1.21.x with async MySQL, Vault economy, and Adventure API.
 
 ---
 
-Developed with ❤️ for the Minecraft Community. 
-Part of the CireeX High-Performance Suite.
+## Features
+
+**Auction House** — Players list items for sale with a 5% listing fee and 48-hour expiry. Unsold items return to a collection bin. Listing limits scale with rank (3 → 20 for Legend). All operations are fully async.
+
+**Admin Shop** — GUI-based shop with multi-page navigation, configurable items/prices, and Vault buy/sell integration.
+
+**Rank Progression** — 6-tier system: Wanderer → Settler → Trader → Merchant → Tycoon → Legend. Requirements per rank: playtime, money, and event wins. Auto-promotes via LuckPerms and deducts money on rankup.
+
+**Server Events** — Chat Quiz (math questions, first correct answer wins tokens) and Mining Race (competitive block-breaking). Events run on a configurable timer (default: hourly).
+
+**Event Tokens** — Secondary currency earned through events. YAML-backed with admin commands to give/take/set balances.
+
+**Home System** — Up to N homes per player with scaling costs ($5k/$10k/$25k). Cached in memory on join, persisted async via MySQL.
+
+**Player Warps** — Public warps with a $50,000 creation cost. MySQL-backed with in-memory cache.
+
+**Teleport Requests** — `/tpa`, `/tpahere` ($100 cost), and `/tpaccept`. Standard request/accept flow.
+
+**PvP Toggle** — Opt-in PvP system with combat tagging (15s). Cooldown before disabling (default: 5 min).
+
+**Scoreboard** — Per-player sidebar showing rank, balance, tokens, active event, and server IP. Updates every second.
+
+**Chat & Tab** — Custom chat formatting with rank prefix support. Configurable tab header/footer with player count.
+
+**Cosmetics** — Particle trail selector via GUI menu.
+
+**Perks** — `/hat`, `/ec` (portable ender chest), `/wb` (portable workbench), `/nick` (display name).
+
+**Resource World** — `/rw` for random teleport into a designated resource world.
+
+---
+
+## Requirements
+
+- Paper **1.21.1+**
+- [Vault](https://www.spigotmc.org/resources/vault.34315/)
+- [LuckPerms](https://luckperms.net/)
+- An economy provider (e.g. EssentialsX)
+- MySQL database
+
+---
+
+## Installation
+
+1. Drop `CSMP-CORE.jar` into your `/plugins` folder.
+2. Start the server once to generate config files, then stop it.
+3. Fill in your MySQL credentials in `database.yml`.
+4. Restart — tables are created automatically.
+
+---
+
+## Commands
+
+| Command | Description | Permission |
+| :--- | :--- | :--- |
+| `/ah [sell <price>]` | Auction House | `csmp.auction` |
+| `/shop` | Admin Shop | `csmp.shop` |
+| `/rankup` | Rank up | `csmp.rankup` |
+| `/tokens` | Check token balance | `csmp.tokens` |
+| `/tokens give/take/set` | Manage tokens | `csmp.tokens.admin` |
+| `/pvp` | Toggle PvP | `csmp.pvp.toggle` |
+| `/sethome [name]` | Set a home | — |
+| `/home [name]` | Teleport to home | — |
+| `/homes` | List homes | — |
+| `/delhome [name]` | Delete a home | — |
+| `/pwarp [set/del/name]` | Player warps | — |
+| `/tpa <player>` | Request teleport | — |
+| `/tpahere <player>` | Request player to you | — |
+| `/tpaccept` | Accept TPA request | — |
+| `/rw` | Resource world | `csmp.resourceworld` |
+| `/cosmetics` | Cosmetics menu | — |
+| `/hat` | Wear item as hat | `csmp.perks.hat` |
+| `/ec` | Portable ender chest | — |
+| `/wb` | Portable workbench | — |
+| `/nick <name>` | Set nickname | — |
+
+---
+
+## Configuration
+
+| File | Purpose |
+| :--- | :--- |
+| `config.yml` | General settings (event timers, cooldowns, limits) |
+| `database.yml` | MySQL credentials and HikariCP pool settings |
+| `messages.yml` | All player-facing messages with placeholder support |
+| `shop.yml` | Admin shop items, categories, and prices |
+
+---
+
+## Technical Details
+
+- **Database**: MySQL via HikariCP connection pooling with prepared statement caching.
+- **Threading**: All DB reads/writes run async via `BukkitScheduler`.
+- **API**: Paper 1.21.1+ with Adventure/MiniMessage components (no legacy `ChatColor`).
+- **Dependencies**: Vault, LuckPerms, economy provider.
+
+---
+
+Made by [Ciree] · Discord: `hitreg_69`
